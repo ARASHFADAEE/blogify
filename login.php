@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1">
-    <link href="/assets/" rel="stylesheet" />
-    <link href="/assets/Css/Style.css" rel="stylesheet" />
+    <link href="./assets/Css/Main.css" rel="stylesheet" />
+    <link href="./assets/Css/Style.css" rel="stylesheet" />
 </head>
 <body class="rtl bg-greengrad min-h">
     <section class="container maxw">
@@ -14,18 +14,19 @@
     
                 <div class="col-lg-6">
                     <div class="card-body p-4 text-center">
-                            <a href="#"><img src="/assets/Img/logo-main.png" alt="logo" class="pt-2 pb-4"></a>
+                            <a href="#">
+                                <img src="./assets/Img/logo-main.png" alt="logo" class="pt-2 pb-4"></a>
       
-                        <form action="">
+                        <form action="./panel/action/login.php">
                             <div class="form-group">
-                                <input type="text" name="user" id="user" class="form-control" required placeholder="نام کاربری">
+                                <input type="text" name="mobile" id="user" class="form-control" required placeholder="شماره تلفن ">
                             </div>
                             <div class="form-group mb-4">
                                 <input type="password" name="password" id="password" class="form-control" required placeholder="کلمه عبور">
                             </div>
                             <button type="submit" name="login" id="login" class="btn btn-block py-2 btn-success radius10 my-3">ورود</button>
                     
-                            <p>هنوز ثبت نام نکرده اید ؟ <a href="b_register.html" class="text-drkprimary">عضویت در سایت</a></p>
+                            <p>هنوز ثبت نام نکرده اید ؟ <a href="./register.php" class="text-drkprimary">عضویت در سایت</a></p>
                            </form>
          
                     </div>
