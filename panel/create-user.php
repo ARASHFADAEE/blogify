@@ -1,11 +1,9 @@
 <?php define('TITLE_PAGE', 'ایحاد کاربر'); ?>
 <?php include_once './partials/header.php' ?>
-<?php include_once './inc/database.php' ?>
 
 <!-- end::header -->
 <!-- begin::main content -->
 <main class="main-content">
-
     <div class="card">
         <div class="card-body">
             <div class="container">
@@ -66,7 +64,7 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" for="file"> آپلود عکس </label>
-                        <input class="col-sm-10" type="file" class="form-control-file" id="file">
+                        <input class="col-sm-10" type="file" class="form-control-file" id="file" name="img">
                     </div>
                     <div class="form-group row">
                         <button type="submit" class="btn btn-success btn-uppercase">
