@@ -1,4 +1,6 @@
+<?php define('TITLE_PAGE','نمایش کاربر')?>
 <?php include_once './partials/header.php' ?>
+
 <!-- end::header -->
 <!-- begin::main content -->
 <main class="main-content">

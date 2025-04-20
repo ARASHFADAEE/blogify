@@ -1,4 +1,6 @@
-<?php include_once './partials/header.php' ?>
+<?php define('TITLE_PAGE','لیست کاربران');?>
+<?php include_once './partials/header.php'; ?>
+
 <!-- end::header -->
 <!-- begin::main content -->
 <main class="main-content">
