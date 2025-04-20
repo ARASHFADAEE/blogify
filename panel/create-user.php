@@ -1,5 +1,6 @@
-<?php define('TITLE_PAGE','ایحاد کاربر');?>
+<?php define('TITLE_PAGE', 'ایحاد کاربر'); ?>
 <?php include_once './partials/header.php' ?>
+<?php include_once './inc/database.php' ?>
 
 <!-- end::header -->
 <!-- begin::main content -->
@@ -9,11 +10,22 @@
         <div class="card-body">
             <div class="container">
                 <h6 class="card-title">ایجاد کاربر</h6>
-                <form method="POST">
+                <form method="POST" action="./action/create_user.php" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">نام و نام خانوادگی</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control text-left" dir="rtl" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">نقش کاربری</label>
+                        <div class="col-sm-10">
+                            <select name="cars" id="cars">
+                                <option value="admin">ادمین</option>
+                                <option value="user">کاربر</option>
+
+                            </select>
+
                         </div>
                     </div>
                     <div class="form-group row">
