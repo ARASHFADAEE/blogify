@@ -4,8 +4,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/blog/panel/config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/blog/panel/inc/database.php';
 
 if (isset($_POST['sub_login'])) {
-    $mobile = filter_var($_POST['mobile'] ?? '', FILTER_SANITIZE_STRING);
-    $password = filter_var($_POST['password'] ?? '', FILTER_SANITIZE_STRING);
+    $mobile = filter_var($_POST['mobile'] ?? '');
+    $password = filter_var($_POST['password'] ?? '');
 
     // بررسی خالی بودن فیلدها
     if (empty($mobile) || empty($password)) {
@@ -27,8 +27,26 @@ if (isset($_POST['sub_login'])) {
 
         if ($user) {
             if (password_verify($password, $user['password'])) {
-                $_SESSION['user'] = $mobile;
-                header("Location: " . BASE_URL . "/panel");
+                $VerifyAdmin = $conn->prepare("SELECT role FROM users WHERE mobile = :mobile");
+                $VerifyAdmin->execute(['mobile' => $mobile]);
+                $role = $VerifyAdmin->fetch(PDO::FETCH_ASSOC);
+
+
+                if ($role && $role['role'] === 'admin') {
+                    session_start();
+                    $_SESSION['is_admin'] = true;
+                    $_SESSION['mobile'] = $mobile;
+                    header("Location: " . BASE_URL . "/panel");
+
+
+                }elseif($role && $role['role'] === 'user'){
+                    session_start();
+                    $_SESSION['is_user'] = true;
+                    $_SESSION['mobile'] = $mobile;
+                    header("Location: " . BASE_URL . "/panel");
+
+                }
+
                 exit;
             } else {
                 header("Location: " . BASE_URL . "/login.php?field=wrong_password");
