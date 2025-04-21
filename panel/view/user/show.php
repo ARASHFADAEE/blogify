@@ -1,5 +1,5 @@
 <?php define('TITLE_PAGE','نمایش کاربر')?>
-<?php include_once './partials/header.php' ?>
+<?php include_once '../partials/header.php' ?>
 
 <!-- end::header -->
 <!-- begin::main content -->
@@ -69,4 +69,4 @@
 
 
 </main>
-<?php include_once './partials/footer.php' ?>
+<?php include_once '../partials/footer.php' ?>

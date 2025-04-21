@@ -7,14 +7,14 @@
 	<title> <?php echo TITLE_PAGE?> قالب مدیریتی - </title>
 	<link rel="shortcut icon" href="assets/media/image/favicon.png">
 	<meta name="theme-color" content="#5867dd">
-	<link rel="stylesheet" href="vendors/bundle.css" type="text/css">
-	<link rel="stylesheet" href="vendors/slick/slick.css">
-	<link rel="stylesheet" href="vendors/slick/slick-theme.css">
-	<link rel="stylesheet" href="vendors/vmap/jqvmap.min.css">
-	<link rel="stylesheet" href="assets/css/app.css" type="text/css">
+	<link rel="stylesheet" href="../vendors/bundle.css" type="text/css">
+	<link rel="stylesheet" href="../vendors/slick/slick.css">
+	<link rel="stylesheet" href="../vendors/slick/slick-theme.css">
+	<link rel="stylesheet" href="../vendors/vmap/jqvmap.min.css">
+	<link rel="stylesheet" href="../assets/css/app.css" type="text/css">
 </head>
 <body class="small-navigation">
-<?php include_once './partials/navigation.php'?>
+<?php include_once '../partials/navigation.php'?>
 
 	<!-- end::navigation -->
 	<!-- begin::header -->

@@ -27,8 +27,8 @@
 				<li>
 					<a href="#">کاربران</a>
 					<ul>
-						<li><a href="<?php echo BASE_URL?>/panel/create-user.php">ایجاد کاربر</a></li>
-						<li><a href="<?php echo BASE_URL?>/panel/users-lists.php">لیست کاربران</a></li>
+						<li><a href="<?php echo BASE_URL?>/panel/view/user/create.php">ایجاد کاربر</a></li>
+						<li><a href="<?php echo BASE_URL?>/panel/view/user/lists.php">لیست کاربران</a></li>
 					</ul>
 				</li>
 			</ul>

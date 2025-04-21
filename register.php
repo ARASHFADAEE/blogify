@@ -16,7 +16,7 @@
                     <div class="card-body p-4 text-center">
                             <a href="#">
                                 <img src="./assets/Img/logo-main.png" alt="logo" class="pt-2 pb-4"></a>
-                        <form action="">
+                        <form action="./panel/action/register.php">
                             <div class="form-group">
                                 <input type="text" name="username" id="username" class="form-control" required placeholder="نام کاربری">
                             </div>
