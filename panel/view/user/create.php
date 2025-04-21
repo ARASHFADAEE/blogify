@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="container">
                 <h6 class="card-title">ایجاد کاربر</h6>
-                <form method="POST" action="./action/create_user.php" enctype="multipart/form-data">
+                <form method="POST" action="../../action/user/create.php" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">نام و نام خانوادگی</label>
                         <div class="col-sm-10">
