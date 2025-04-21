@@ -1,5 +1,23 @@
-<?php define('TITLE_PAGE','نمایش کاربر')?>
-<?php include_once '../partials/header.php' ?>
+<?php
+session_start();
+define('TITLE_PAGE', 'نمایش کاربر');
+include_once $_SERVER['DOCUMENT_ROOT'].'/blog/panel/config.php';
+// چک کردن سشن و نقش کاربر
+if (!isset($_SESSION['role'])) {
+    // اگه سشن وجود نداشت (کاربر لاگین نکرده)
+    header("Location: " . BASE_URL . "/index.php?error=not_logged_in");
+    exit;
+}
+
+if ($_SESSION['role'] !== 'admin') {
+    // اگه نقش کاربر ادمین نبود (مثلاً user یا هر چیز دیگه)
+    header("Location: " . BASE_URL . "/index.php?error=access_denied");
+    exit;
+}
+
+// اگه همه چیز درست بود، صفحه لود می‌شه
+include_once '../partials/header.php';
+?>
 
 <!-- end::header -->
 <!-- begin::main content -->

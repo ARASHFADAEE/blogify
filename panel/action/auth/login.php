@@ -4,8 +4,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/blog/panel/config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/blog/panel/inc/database.php';
 
 if (isset($_POST['sub_login'])) {
-    $mobile = filter_var($_POST['mobile'] ?? '');
-    $password = filter_var($_POST['password'] ?? '');
+    $mobile = filter_var($_POST['mobile'] ?? '', FILTER_SANITIZE_STRING);
+    $password = trim($_POST['password'] ?? '');
 
     // بررسی خالی بودن فیلدها
     if (empty($mobile) || empty($password)) {
@@ -20,33 +20,25 @@ if (isset($_POST['sub_login'])) {
     }
 
     try {
-        // اجرای کوئری با PDO
-        $stmt = $conn->prepare("SELECT password FROM users WHERE mobile = :mobile");
+        // اجرای کوئری با PDO برای گرفتن پسورد و نقش
+        $stmt = $conn->prepare("SELECT password, role FROM users WHERE mobile = :mobile");
         $stmt->execute(['mobile' => $mobile]);
-        $user = $stmt->fetch();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
+            // بررسی پسورد
             if (password_verify($password, $user['password'])) {
-                $VerifyAdmin = $conn->prepare("SELECT role FROM users WHERE mobile = :mobile");
-                $VerifyAdmin->execute(['mobile' => $mobile]);
-                $role = $VerifyAdmin->fetch(PDO::FETCH_ASSOC);
+                // ذخیره نقش و موبایل توی سشن
+                $_SESSION['role'] = $user['role'];
+                $_SESSION['mobile'] = $mobile;
 
-
-                if ($role && $role['role'] === 'admin') {
-                    session_start();
-                    $_SESSION['is_admin'] = true;
-                    $_SESSION['mobile'] = $mobile;
-                    header("Location: " . BASE_URL . "/panel");
-
-
-                }elseif($role && $role['role'] === 'user'){
-                    session_start();
-                    $_SESSION['is_user'] = true;
-                    $_SESSION['mobile'] = $mobile;
-                    header("Location: " . BASE_URL . "/panel");
-
+                if ($user['role'] === 'admin') {
+                    header("Location: " . BASE_URL . "/panel/view/dashboard/");
+                } elseif ($user['role'] === 'user') {
+                    header("Location: " . BASE_URL . "/panel/view/dashboard/");
+                } else {
+                    header("Location: " . BASE_URL . "/login.php?field=invalid_role");
                 }
-
                 exit;
             } else {
                 header("Location: " . BASE_URL . "/login.php?field=wrong_password");
