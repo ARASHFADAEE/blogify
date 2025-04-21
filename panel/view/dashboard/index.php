@@ -1,5 +1,5 @@
 <?php define('TITLE_PAGE','داشبورد')?>
-<?php include_once './partials/header.php' ?>
+<?php include_once '../partials/header.php' ?>
 
 
 <!-- end::header -->
@@ -82,4 +82,4 @@
 
 
 </main>
-<?php include_once './partials/footer.php' ?>
+<?php include_once '../partials/footer.php' ?>
